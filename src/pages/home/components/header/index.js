@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import {
     Container,
     Background,
@@ -26,7 +27,9 @@ const Header = () => {
                         <LangSelector>
                             <option value="">English</option>
                         </LangSelector>
-                        <SignInButton>Sign In</SignInButton>
+                        <Link to="/in/login">
+                            <SignInButton>Sign In</SignInButton>
+                        </Link>
                     </Pane>
                 </Nav>
                 <Content>

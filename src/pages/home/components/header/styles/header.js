@@ -13,7 +13,7 @@ export const Container = styled.div`
 
 export const Background = styled.div`
     position: absolute;
-    background: url("images/home/bg.jpg") no-repeat center;
+    background: url("/images/home/bg.jpg") no-repeat center;
     background-size: cover;
     width: 100%;
     height: 100%;
@@ -102,6 +102,7 @@ export const SignInButton = styled.button`
     padding: 10px 20px;
     border: none;
     border-radius: 2px;
+    cursor: pointer;
 
     @media (max-width: 550px) {
         padding: 5px 10px;
