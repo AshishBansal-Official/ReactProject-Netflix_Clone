@@ -4,7 +4,7 @@ import {
     Route,
     Navigate,
 } from "react-router-dom";
-import { Home, Login } from "./pages";
+import { Home, Login, Browse } from "./pages";
 
 function App() {
     return (
@@ -18,6 +18,12 @@ function App() {
                     element={<Navigate to="/in/login" />}
                 ></Route>
                 <Route exact path="/in/login" element={<Login />}></Route>
+                <Route
+                    exact
+                    path="/browse/*"
+                    element={<Navigate to="/in/browse*" />}
+                ></Route>
+                <Route exact path="/in/browse" element={<Browse />}></Route>
             </Routes>
         </Router>
     );

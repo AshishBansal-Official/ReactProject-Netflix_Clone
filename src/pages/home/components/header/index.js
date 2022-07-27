@@ -22,7 +22,7 @@ const Header = () => {
                 <Background></Background>
                 <Overlay></Overlay>
                 <Nav>
-                    <Logo src="images/logo.svg"></Logo>
+                    <Logo src="../images/logo.svg"></Logo>
                     <Pane>
                         <LangSelector>
                             <option value="">English</option>
@@ -49,7 +49,10 @@ const Header = () => {
                         ></InputField>
                         <GetStartedButton>
                             <span>Get Started</span>
-                            <img src="images/icons/chevron-right.png" alt="" />
+                            <img
+                                src="../images/icons/chevron-right.png"
+                                alt=""
+                            />
                         </GetStartedButton>
                     </FormContainer>
                 </Content>

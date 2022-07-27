@@ -35,6 +35,7 @@ export const Content = styled.div`
     flex-direction: column;
     align-items: center;
     z-index: 1;
+
     @media (max-width: 740px) {
         background-color: rgb(0, 0, 0);
     }

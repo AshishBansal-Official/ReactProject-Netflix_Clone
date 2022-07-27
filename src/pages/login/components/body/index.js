@@ -45,7 +45,7 @@ const Body = () => {
                         </a>
                     </div>
                 </Form>
-                <span style={{ color: "#B3B3B3" }}>
+                <span style={{ color: "#737373" }}>
                     New to Netflix?
                     <Link
                         to="/in"
@@ -58,7 +58,7 @@ const Body = () => {
                 <span
                     style={{
                         margin: "13px 0",
-                        color: "#B3B3B3",
+                        color: "#8C8C8C",
                         fontSize: "13px",
                     }}
                 >
@@ -67,7 +67,7 @@ const Body = () => {
                 </span>
                 <span
                     style={{
-                        color: "#B3B3B3",
+                        color: "#8C8C8C",
                         fontSize: "13px",
                     }}
                 >

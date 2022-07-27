@@ -43,7 +43,7 @@ const Body = () => {
                         <ImageContainer>
                             <img src={data[0].image} alt={data[0].title} />
                             <video
-                                src="images\home\home-tv.m4v"
+                                src="../images/home/home-tv.m4v"
                                 className="tv"
                                 autoPlay
                                 playsInline
@@ -66,19 +66,20 @@ const Body = () => {
                         <ImageContainer>
                             <img src={data[1].image} alt={data[1].title} />
                             <ImageContainerBanner>
-                                <img src="images/home/boxshot.png" alt="" />
+                                <img src="../images/home/boxshot.png" alt="" />
                                 <div
                                     style={{
                                         display: "flex",
                                         flexDirection: "column",
                                         flex: "1 1",
+                                        alignItems: "flex-start",
                                     }}
                                 >
                                     <span>Stranger Things</span>
                                     <span>Downloading...</span>
                                 </div>
                                 <img
-                                    src="images/home/download-icon.gif"
+                                    src="../images/home/download-icon.gif"
                                     alt=""
                                 />
                             </ImageContainerBanner>
@@ -96,7 +97,7 @@ const Body = () => {
                         <ImageContainer>
                             <img src={data[2].image} alt={data[2].title} />
                             <video
-                                src="images\home\home-imac.m4v"
+                                src="../images/home/home-imac.m4v"
                                 className="imac"
                                 autoPlay
                                 playsInline
@@ -144,12 +145,12 @@ const Body = () => {
                                     {item.header}
                                     {fAQOpened === item.id ? (
                                         <img
-                                            src="/images/icons/close-slim.png"
+                                            src="../images/icons/close-slim.png"
                                             alt="Close"
                                         />
                                     ) : (
                                         <img
-                                            src="/images/icons/add.png"
+                                            src="../images/icons/add.png"
                                             alt="Open"
                                         />
                                     )}
@@ -191,7 +192,10 @@ const Body = () => {
                         ></InputField>
                         <GetStartedButton>
                             <span>Get Started</span>
-                            <img src="images/icons/chevron-right.png" alt="" />
+                            <img
+                                src="../images/icons/chevron-right.png"
+                                alt=""
+                            />
                         </GetStartedButton>
                     </FormContainer>
                 </div>

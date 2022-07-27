@@ -6,6 +6,41 @@ export const Container = styled.div`
     position: relative;
     z-index: 0;
 
+    * {
+        font-family: "Netflix Sans", "Helvetica Neue", Helvetica, Arial,
+            sans-serif;
+        @font-face {
+            font-family: "Netflix Sans";
+            font-weight: 100;
+            src: url("../fonts/NetflixSans_Th.woff2") format("woff2");
+        }
+        @font-face {
+            font-family: "Netflix Sans";
+            font-weight: 300;
+            src: url("../fonts/NetflixSans_Lt.woff2") format("woff2");
+        }
+        @font-face {
+            font-family: "Netflix Sans";
+            font-weight: 400;
+            src: url("../fonts/NetflixSans_Rg.woff2") format("woff2");
+        }
+        @font-face {
+            font-family: "Netflix Sans";
+            font-weight: 700;
+            src: url("../fonts/NetflixSans_Md.woff2") format("woff2");
+        }
+        @font-face {
+            font-family: "Netflix Sans";
+            font-weight: 800;
+            src: url("../fonts/NetflixSans_Bd.woff2") format("woff2");
+        }
+        @font-face {
+            font-family: "Netflix Sans";
+            font-weight: 900;
+            src: url("../fonts/NetflixSans_Blk.woff2") format("woff2");
+        }
+    }
+
     @media (max-width: 550px) {
         height: 530px;
     }
@@ -13,7 +48,7 @@ export const Container = styled.div`
 
 export const Background = styled.div`
     position: absolute;
-    background: url("/images/home/bg.jpg") no-repeat center;
+    background: url("../images/home/bg.jpg") no-repeat center;
     background-size: cover;
     width: 100%;
     height: 100%;
