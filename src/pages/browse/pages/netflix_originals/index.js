@@ -1,5 +1,4 @@
-import React from "react";
-import BrowseTemplate from "../templates/index.js";
+import BrowseTemplate from "../../templates/index.js";
 
 const NetflixOriginals = () => {
     return <BrowseTemplate></BrowseTemplate>;

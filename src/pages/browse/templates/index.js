@@ -1,6 +1,7 @@
 import React from "react";
-import { Container } from "./styles/browser_template";
-import { Nav, Body, Footer } from "./components/";
+import { Container } from "../styles/browser_template";
+import { Nav, Footer } from '../../components'
+import { Body } from "../components";
 
 const BrowseTemplate = () => {
     return (

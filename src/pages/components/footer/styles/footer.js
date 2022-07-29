@@ -3,9 +3,9 @@ import styled from "styled-components/macro";
 export const FooterContainer = styled.div`
     padding: 70px 45px 35px;
     display: flex;
-    justify-content: center;
     align-items: center;
-    width: 100%;
+    margin: 0 auto;
+    width: 90%;
 
     @media (max-width: 550px) {
         padding: 50px 25px 35px;

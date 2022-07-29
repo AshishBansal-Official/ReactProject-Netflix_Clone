@@ -1,1 +1,1 @@
-export { default as NetflixOriginals } from "./components/netflix_originals";
+export { default as NetflixOriginals } from "./netflix_originals";
