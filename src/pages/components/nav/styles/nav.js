@@ -8,7 +8,7 @@ export const Container = styled.div`
     z-index: 20;
     background-color: #000;
     display: flex;
-    height: 56px;
+    height: ${({ height }) => height};
     justify-content: space-between;
     align-items: center;
     padding: 0px 3%;

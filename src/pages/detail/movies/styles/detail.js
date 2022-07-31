@@ -37,7 +37,7 @@ export const SectionHeader = styled.div`
         line-height: 34px;
         display: inline-block;
     }
-    
+
     h2.section_subheader {
         color: #a3a3a3;
         white-space: nowrap;

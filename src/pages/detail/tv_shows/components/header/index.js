@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from "react";
 
 import {
     HeaderContainer,
@@ -9,16 +9,15 @@ import {
     HeaderContainerBottomBanner,
 } from "./styles/header";
 
-const Header = ({ data, imageData, itemData, creditsData }) => {
-
+const Header = ({ data }) => {
     return (
         <>
             <HeaderContainer>
                 <InfoWrapper>
                     <InfoContainer
                         img={
-                            imageData && imageData?.logos?.length > 0
-                                ? `${process.env.REACT_APP_IMAGES_BASE_URL}${imageData?.logos[0]["file_path"]}`
+                            data && data?.images?.logos?.length > 0
+                                ? `${process.env.REACT_APP_IMAGES_BASE_URL}${data?.images?.logos[0]["file_path"]}`
                                 : ""
                         }
                     >
@@ -26,26 +25,18 @@ const Header = ({ data, imageData, itemData, creditsData }) => {
                         <h1>{data && data?.name}</h1>
                         <div id="details">
                             <span>
-                                {itemData &&
-                                    itemData?.id &&
-                                    itemData.first_air_date?.slice(
-                                        0,
-                                        4
-                                    )}
+                                {data && data?.first_air_date?.slice(0, 4)}
                             </span>
                             <span id="spacer"> | </span>
                             <span>
-                                {itemData &&
-                                    itemData?.seasons?.length > 0
-                                    ? itemData?.seasons?.length === 1
+                                {data && data?.seasons?.length > 0
+                                    ? data?.seasons?.length === 1
                                         ? "1 Season"
-                                        : `${itemData?.seasons?.length} Seasons`
+                                        : `${data?.seasons?.length} Seasons`
                                     : ""}
                             </span>
                         </div>
-                        <div id="overview">
-                            {data && data?.overview}
-                        </div>
+                        <div id="overview">{data && data?.overview}</div>
                         <div
                             style={{
                                 paddingTop: "16px",
@@ -58,20 +49,18 @@ const Header = ({ data, imageData, itemData, creditsData }) => {
                             >
                                 Starring:{" "}
                             </span>
-                            {creditsData &&
-                                creditsData?.cast?.length > 0 &&
-                                creditsData?.cast?.map(
+                            {data &&
+                                data?.aggregate_credits?.cast?.length > 0 &&
+                                data?.aggregate_credits?.cast?.map(
                                     (casted, index) => {
                                         return (
                                             <span key={index}>
                                                 {index > 2
                                                     ? ""
                                                     : index === 0
-                                                        ? ""
-                                                        : ", "}
-                                                {index > 2
                                                     ? ""
-                                                    : casted.name}
+                                                    : ", "}
+                                                {index > 2 ? "" : casted.name}
                                             </span>
                                         );
                                     }
@@ -84,33 +73,29 @@ const Header = ({ data, imageData, itemData, creditsData }) => {
                             >
                                 Creators:{" "}
                             </span>
-                            {itemData &&
-                                itemData?.created_by?.length > 0 &&
-                                itemData?.created_by?.map(
-                                    (creator, index) => {
-                                        return (
-                                            <span key={index}>
-                                                {index > 2
-                                                    ? ""
-                                                    : index === 0
-                                                        ? ""
-                                                        : ", "}
-                                                {index > 2
-                                                    ? ""
-                                                    : creator.name}
-                                            </span>
-                                        );
-                                    }
-                                )}
+                            {data &&
+                                data?.created_by?.length > 0 &&
+                                data?.created_by?.map((creator, index) => {
+                                    return (
+                                        <span key={index}>
+                                            {index > 2
+                                                ? ""
+                                                : index === 0
+                                                ? ""
+                                                : ", "}
+                                            {index > 2 ? "" : creator.name}
+                                        </span>
+                                    );
+                                })}
                         </div>
                     </InfoContainer>
                 </InfoWrapper>
                 <ImageWrapper>
                     <ImageContainer
                         img={
-                            imageData &&
-                            imageData?.backdrops?.length > 0 &&
-                            `${process.env.REACT_APP_IMAGES_BASE_URL}${imageData?.backdrops[0]["file_path"]}`
+                            data &&
+                            data?.images?.backdrops?.length > 0 &&
+                            `${process.env.REACT_APP_IMAGES_BASE_URL}${data?.images?.backdrops[0]["file_path"]}`
                         }
                     ></ImageContainer>
                 </ImageWrapper>
@@ -136,7 +121,7 @@ const Header = ({ data, imageData, itemData, creditsData }) => {
                 </div>
             </HeaderContainerBottomBanner>
         </>
-    )
-}
+    );
+};
 
-export default Header
+export default Header;
