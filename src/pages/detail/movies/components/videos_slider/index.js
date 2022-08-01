@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { displayVideo } from "../../../../../features/detail/showVideoSlice";
+import { addVideoData } from "../../../../../features/detail/videoDataSlice";
 import {
     SliderContainer,
     SliderLeftButton,
@@ -11,12 +14,15 @@ const Slider = ({ data }) => {
     const [showLeftButton, setshowLeftButton] = useState(false);
     const [showRightButton, setshowRightButton] = useState(false);
 
+    const showVideo = useSelector((state) => state.showVideo.value);
+    const dispatch = useDispatch();
+
     useEffect(() => {
         const sliderList = document.getElementById("slider_list");
         const leftButton = document.getElementById("left_button");
         const rightButton = document.getElementById("right_button");
 
-        sliderList.scrollWidth >= sliderList.clientWidth
+        sliderList.scrollWidth > sliderList.clientWidth
             ? setshowRightButton(true)
             : setshowRightButton(false);
 
@@ -81,7 +87,18 @@ const Slider = ({ data }) => {
                             image={`https://img.youtube.com/vi/${video?.key}/hqdefault.jpg`}
                             key={index}
                         >
-                            <a href="#">
+                            <div
+                                className="video_container"
+                                onClick={() => {
+                                    dispatch(displayVideo());
+                                    dispatch(
+                                        addVideoData({
+                                            videoTitle: video?.name,
+                                            videoUrl: `${process.env.REACT_APP_VIDEOS_BASE_URL}${video?.key}`,
+                                        })
+                                    );
+                                }}
+                            >
                                 <div>
                                     <svg
                                         viewBox="0 0 50 50"
@@ -102,7 +119,7 @@ const Slider = ({ data }) => {
                                     </svg>
                                 </div>
                                 <span>{video?.name}</span>
-                            </a>
+                            </div>
                         </SliderListItem>
                     ) : (
                         <span key={index}></span>

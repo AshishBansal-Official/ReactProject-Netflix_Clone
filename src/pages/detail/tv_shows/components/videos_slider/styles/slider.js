@@ -71,7 +71,7 @@ export const SliderListItem = styled.li`
         width: 270px;
     }
 
-    a {
+    div.video_container {
         width: 100%;
         text-decoration: none;
         color: #fff;

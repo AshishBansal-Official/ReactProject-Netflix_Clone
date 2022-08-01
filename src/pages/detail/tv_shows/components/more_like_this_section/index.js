@@ -7,9 +7,11 @@ const MoreLikeThisSection = ({ data }) => {
             {data.map((similar, index) => (
                 <Link to={`/title/${similar.id}`} key={index}>
                     <SimilarContainer
-                        src={`${process.env.REACT_APP_IMAGES_BASE_URL}${similar.poster_path}`}
-                        alt=""
-                    ></SimilarContainer>
+                        imageUrl={`${process.env.REACT_APP_IMAGES_BASE_URL}${similar.backdrop_path}`}
+                    >
+                        <span>{similar.name}</span>
+                        <span className="list_gradient"></span>
+                    </SimilarContainer>
                 </Link>
             ))}
         </Wrapper>
