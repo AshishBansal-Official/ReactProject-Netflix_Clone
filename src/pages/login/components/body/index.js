@@ -100,6 +100,7 @@ const Body = () => {
                             type="checkbox"
                             name="rememberMe"
                             id="rememberMe"
+                            onChange={() => {}}
                         />
                         <label htmlFor="rememberMe">Remember Me</label>
                         <a

@@ -6,7 +6,12 @@ import { auth } from "../../../services/firebase";
 import { useDispatch } from "react-redux";
 import { resetUser } from "../../../features/user/userSlice";
 
-const Nav = ({ showTrailing = true, height = "56px", selected = 0 }) => {
+const Nav = ({
+    showTrailing = true,
+    height = "56px",
+    selected = 0,
+    showSolidBackground = false,
+}) => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const [selectedPage, setSelectedPage] = useState(selected);
@@ -35,7 +40,7 @@ const Nav = ({ showTrailing = true, height = "56px", selected = 0 }) => {
     };
 
     return (
-        <Container height={height}>
+        <Container height={height} showSolidBackground={showSolidBackground}>
             <Link to="/in/">
                 <Logo>
                     <img src="/images/logo.svg" className="img_big" alt="" />

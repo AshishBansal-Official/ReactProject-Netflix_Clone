@@ -6,7 +6,8 @@ export const Container = styled.div`
     right: 0;
     top: 0;
     z-index: 20;
-    /* background-color: #000; */
+    background-color: ${({ showSolidBackground }) =>
+        showSolidBackground ? "rgb(20, 20, 20)" : "transparent"};
     background-image: linear-gradient(
         180deg,
         rgba(0, 0, 0, 0.7) 10%,
@@ -18,10 +19,7 @@ export const Container = styled.div`
     align-items: center;
     padding: 0px 3%;
     cursor: pointer;
-
-    @media (max-width: 599px) {
-        /* background-color: rgba(0, 0, 0, 0.75); */
-    }
+    transition: background-color 0.4s;
 `;
 
 export const Logo = styled.div`
