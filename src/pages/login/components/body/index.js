@@ -1,24 +1,94 @@
-import React from "react";
+import React, { useState } from "react";
 import { Wrapper, Container, Form, FormField } from "./styles/body";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux/es/exports";
+import { auth } from "../../../../services/firebase";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { setUser } from "../../../../features/user/userSlice";
 
 const Body = () => {
+    const initialFormData = Object.freeze({
+        email: "",
+        password: "",
+    });
+    const [loading, setLoading] = useState(false);
+    const [formData, updateFormData] = useState(initialFormData);
+
+    const handleChange = (e) => {
+        updateFormData({
+            ...formData,
+            // Triming any whitespace
+            [e.target.name]: e.target.value.trim(),
+        });
+    };
+    const dispatch = useDispatch();
+
+    const handleSubmit = async (e) => {
+        if (formData.email.trim() === "" || formData.password.trim() === "") {
+            return;
+        }
+        e.preventDefault();
+        setLoading(true);
+        const email = formData.email;
+        const password = formData.password;
+        try {
+            const userCredentials = await signInWithEmailAndPassword(
+                auth,
+                email,
+                password
+            );
+            const user = userCredentials?.user;
+            dispatch(setUser({ uid: user?.uid, email: user?.email }));
+        } catch (error) {
+            alert(
+                `${
+                    error.message.split("Firebase: ")[1].split("(")[0]
+                }: ${error.message
+                    .split("Firebase: ")[1]
+                    .split("(")[1]
+                    .split("/")[1]
+                    .split(")")[0]
+                    .split("-")
+                    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+                    .join(" ")}`
+            );
+        }
+        setLoading(false);
+    };
+
     return (
         <Wrapper>
             <Container>
                 <h1>Sign In</h1>
                 <Form>
                     <FormField
-                        type="text"
+                        required
+                        type="email"
+                        name="email"
+                        onChange={handleChange}
                         placeholder="Email or phone number"
                     ></FormField>
                     <FormField
+                        required
                         type="password"
+                        name="password"
+                        onChange={handleChange}
                         placeholder="Password"
                     ></FormField>
-                    <button type="submit">Sign In</button>
+                    <button
+                        type="submit"
+                        disabled={loading}
+                        onClick={handleSubmit}
+                    >
+                        <span>
+                            {!loading && "Sign In"}
+                            {loading && <div class="indicator"> </div>}
+                        </span>
+                    </button>
                     <div style={{ color: "#B3B3B3", position: "relative" }}>
                         <input
+                            required
+                            checked
                             style={{
                                 backgroundColor: "#B3B3B3",
                                 height: "16px",
@@ -48,7 +118,7 @@ const Body = () => {
                 <span style={{ color: "#737373" }}>
                     New to Netflix?
                     <Link
-                        to="/in"
+                        to="/"
                         style={{ textDecoration: "None", color: "white" }}
                     >
                         {" "}

@@ -50,7 +50,11 @@ const EpisodesSection = ({ id, data }) => {
                                         ? `${process.env.REACT_APP_IMAGES_BASE_URL}/${episode.still_path}`
                                         : ""
                                 }
-                                containsHour={episode?.runtime > 60}
+                                containsHour={
+                                    episode.runtime == null
+                                        ? true
+                                        : episode?.runtime > 60
+                                }
                                 key={index}
                             >
                                 <div className="episode_list_thumbnail">
@@ -63,11 +67,14 @@ const EpisodesSection = ({ id, data }) => {
                                         {episode.name}
                                     </h3>
                                     <span>
-                                        {!(episode.runtime > 60)
+                                        {episode.runtime == null
+                                            ? "0"
+                                            : !(episode.runtime > 60)
                                             ? `${parseInt(
                                                   episode.runtime / 60
                                               )}h ${episode.runtime}`
                                             : episode.runtime}
+
                                         {"m"}
                                     </span>
                                 </div>

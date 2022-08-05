@@ -28,7 +28,7 @@ const Footer = () => {
                         >
                             Help Centre
                         </a>
-                        <a href="/in/login" target="_blank" rel="noreferrer">
+                        <a href="/login" target="_blank" rel="noreferrer">
                             Account
                         </a>
                         <a

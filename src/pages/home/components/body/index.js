@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
     Container,
     BodyTile,
@@ -22,6 +23,13 @@ import faqsData from "../../fixtures/faqs.json";
 
 const Body = () => {
     const [fAQOpened, setFAQOpened] = useState(0);
+    const navigate = useNavigate();
+
+    const handleClick = () => {
+        const emailElement = document.getElementById("home_body_email");
+        const email = emailElement.value;
+        navigate("/register", { state: { email: email } });
+    };
 
     const handleFAQClick = ({ index }) => {
         if (fAQOpened === index) {
@@ -187,10 +195,11 @@ const Body = () => {
                     </span>
                     <FormContainer>
                         <InputField
+                            id="home_body_email"
                             type="text"
                             placeholder="Email address"
                         ></InputField>
-                        <GetStartedButton>
+                        <GetStartedButton onClick={() => handleClick()}>
                             <span>Get Started</span>
                             <img
                                 src="../images/icons/chevron-right.png"

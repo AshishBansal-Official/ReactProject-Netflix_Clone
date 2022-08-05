@@ -54,7 +54,7 @@ export const SliderLeftButton = styled.button`
 
 export const SliderList = styled.ul`
     width: 100%;
-    height: 100%;
+    height: min-content;
     display: flex;
     margin: 16px 0;
     overflow-x: scroll;

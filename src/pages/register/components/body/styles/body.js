@@ -1,53 +1,19 @@
 import styled from "styled-components/macro";
 
-export const Wrapper = styled.div`
-    width: 100%;
-    padding: 0 5%;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 90px;
-    @media (max-width: 740px) {
-        margin-bottom: 30px;
-        margin-top: 10px;
-    }
-`;
-
 export const Container = styled.div`
-    width: 100%;
-    min-width: 380px;
-    min-height: 660px;
-    max-width: 450px;
-    padding: 60px 68px 40px;
-    background-color: rgba(0, 0, 0, 0.75);
-    border-radius: 4px;
-    display: flex;
-    flex-direction: column;
-    margin: 0;
+    margin: auto;
+    padding: 20px 0px;
+    color: black;
 
-    h1 {
-        font-size: 2rem;
-        margin-bottom: 28px;
-    }
-
-    @media (max-width: 740px) {
-        padding: 0;
-        max-width: 100%;
-        width: 100%;
-        min-height: 0px;
-    }
-`;
-
-export const Form = styled.form`
-    margin-bottom: 90px;
     button {
-        color: white;
-        background-color: var(--color-primary-red);
+        padding: 20px 10px;
         width: 100%;
-        font-size: 1rem;
-        font-weight: 700;
-        margin: 24px 0 12px;
+        margin-top: 20px;
+        font-size: 22px;
+        background-color: var(--color-primary-red);
+        border: 0;
+        color: white;
         border-radius: 4px;
-        padding: 14px;
         cursor: pointer;
         display: flex;
         align-items: center;
@@ -87,15 +53,23 @@ export const Form = styled.form`
     }
 `;
 
-export const FormField = styled.input`
+export const InputField = styled.input`
+    padding: 10px;
     width: 100%;
-    background: #333;
-    border-radius: 4px;
-    height: 50px;
-    border: 0;
-    color: #fff;
-    line-height: 50px;
-    padding: 0 20px;
-    outline: 0;
-    margin-bottom: 16px;
+    margin-top: 20px;
+    flex: 1;
+    border: 1px solid black;
+    outline: none;
+    outline-width: 0;
+    border-radius: 2px;
+    min-height: 50px;
+
+    @media (max-width: 950px) {
+        border-radius: 2px;
+    }
+
+    @media (max-width: 748px) {
+        min-height: 50px;
+        font-size: 14px;
+    }
 `;

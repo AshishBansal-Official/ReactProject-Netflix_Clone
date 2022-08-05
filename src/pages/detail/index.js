@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import TVShowDetail from "./tv_shows";
 import MovieDetail from "./movies";
 import { useSelector, useDispatch } from "react-redux";
-import { displayVideo, hideVideo } from "../../features/detail/showVideoSlice";
+import { hideVideo } from "../../features/detail/showVideoSlice";
 import {
     Overlay,
     VideoContainer,

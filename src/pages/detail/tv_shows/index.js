@@ -22,7 +22,7 @@ const TVShowDetail = () => {
     const id = params.id;
 
     useEffect(() => {
-        // window.scrollTo(0, 0);
+        window.scrollTo(0, 0);
         const getData = async () => {
             const dataLink = `${process.env.REACT_APP_MOVIES_BASE_URL}/tv/${id}?api_key=${process.env.REACT_APP_MOVIES_API_KEY}&append_to_response=videos,images,aggregate_credits,similar`;
             const res = await fetch(dataLink);

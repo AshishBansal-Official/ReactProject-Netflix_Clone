@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
     Container,
     Background,
@@ -16,6 +16,14 @@ import {
 } from "./styles/header";
 
 const Header = () => {
+    const navigate = useNavigate();
+
+    const handleClick = () => {
+        const emailElement = document.getElementById("home_header_email");
+        const email = emailElement.value;
+        navigate("/register", { state: { email: email } });
+    };
+
     return (
         <>
             <Container>
@@ -27,7 +35,7 @@ const Header = () => {
                         <LangSelector>
                             <option value="">English</option>
                         </LangSelector>
-                        <Link to="/in/login">
+                        <Link to="/login">
                             <SignInButton>Sign In</SignInButton>
                         </Link>
                     </Pane>
@@ -44,10 +52,11 @@ const Header = () => {
                     </span>
                     <FormContainer>
                         <InputField
+                            id="home_header_email"
                             type="text"
                             placeholder="Email address"
                         ></InputField>
-                        <GetStartedButton>
+                        <GetStartedButton onClick={() => handleClick()}>
                             <span>Get Started</span>
                             <img
                                 src="../images/icons/chevron-right.png"
