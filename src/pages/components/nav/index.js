@@ -9,12 +9,11 @@ import { resetUser } from "../../../features/user/userSlice";
 const Nav = ({
     showTrailing = true,
     height = "56px",
-    selected = 0,
+    selected,
     showSolidBackground = false,
 }) => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const [selectedPage, setSelectedPage] = useState(selected);
     const [loading, setLoading] = useState(false);
 
     const handleSignOut = async () => {
@@ -52,17 +51,17 @@ const Nav = ({
                 </Logo>
             </Link>
             <div style={{ width: "100%", margin: "0px 20px" }}>
-                <NavLink selected={selectedPage === 0}>
-                    <Link to="">Home</Link>
+                <NavLink selected={selected === 0}>
+                    <Link to="home">Home</Link>
                 </NavLink>
-                <NavLink selected={selectedPage === 1}>
-                    <Link to="">TV Shows</Link>
+                <NavLink selected={selected === 1}>
+                    <Link to="tv-shows">TV Shows</Link>
                 </NavLink>
-                <NavLink selected={selectedPage === 2}>
-                    <Link to="">Movies</Link>
+                <NavLink selected={selected === 2}>
+                    <Link to="movies">Movies</Link>
                 </NavLink>
-                <NavLink selected={selectedPage === 3}>
-                    <Link to="">New & Popular</Link>
+                <NavLink selected={selected === 3}>
+                    <Link to="new-and-popular">New & Popular</Link>
                 </NavLink>
             </div>
             {!showTrailing ? (

@@ -33,10 +33,10 @@ function App() {
                 <Route exact path="/login" element={<Login />} />
                 <Route exact path="/register" element={<Register />} />
                 <Route exact path="/404page" element={<PageNotFound />} />
-                <Route element={<PrivateRoute isLoggedIn={isLoggedIn} />}>
-                    <Route exact path="/browse/*" element={<Browse />} />
-                    <Route exact path="/title/:id" element={<Detail />} />
-                </Route>
+                {/* <Route element={<PrivateRoute isLoggedIn={isLoggedIn} />}> */}
+                <Route exact path="/browse/*" element={<Browse />} />
+                <Route exact path="/title/:id" element={<Detail />} />
+                {/* </Route> */}
                 <Route path="/*" element={<PageNotFound />} />
             </Routes>
         </Router>

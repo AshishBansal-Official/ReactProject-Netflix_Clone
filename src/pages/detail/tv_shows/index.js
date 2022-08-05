@@ -39,9 +39,8 @@ const TVShowDetail = () => {
         <Container>
             <div>
                 {/* <Nav></Nav> */}
+                <Header data={data}></Header>
                 <Body>
-                    <Header data={data}></Header>
-
                     {/* Videos Section */}
                     {data && data?.videos?.results?.length > 1 && (
                         <SectionContainer>

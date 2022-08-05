@@ -6,6 +6,34 @@ export const HeaderContainer = styled.div`
     margin: 0 auto;
     position: relative;
     width: 100%;
+    margin-bottom: 2%;
+    overflow: hidden;
+    div.image_container_gradient {
+        background: linear-gradient(
+            0deg,
+            #181818 0,
+            hsla(0, 0%, 9%, 0.987) 1.62%,
+            hsla(0, 0%, 9%, 0.951) 3.1%,
+            hsla(0, 0%, 9%, 0.896) 4.5%,
+            hsla(0, 0%, 9%, 0.825) 5.8%,
+            hsla(0, 0%, 9%, 0.741) 7.06%,
+            hsla(0, 0%, 9%, 0.648) 8.24%,
+            hsla(0, 0%, 9%, 0.55) 9.42%,
+            hsla(0, 0%, 9%, 0.45) 10.58%,
+            hsla(0, 0%, 9%, 0.352) 11.76%,
+            hsla(0, 0%, 9%, 0.259) 12.94%,
+            hsla(0, 0%, 9%, 0.175) 14.2%,
+            hsla(0, 0%, 9%, 0.104) 15.5%,
+            hsla(0, 0%, 9%, 0.049) 16.9%,
+            hsla(0, 0%, 9%, 0.013) 18.38%,
+            hsla(0, 0%, 9%, 0) 20%
+        );
+        content: "";
+        height: 100%;
+        left: 0;
+        position: absolute;
+        width: 100%;
+    }
 `;
 
 export const InfoWrapper = styled.div`
@@ -14,7 +42,7 @@ export const InfoWrapper = styled.div`
     justify-content: center;
     max-width: 800px;
     min-width: 500px;
-    padding: 16px 32px 64px 0;
+    padding: 16px 32px 64px 80px;
     position: relative;
     width: 40%;
     z-index: 2;
@@ -104,33 +132,6 @@ export const ImageContainer = styled.div`
     position: absolute;
     right: -6%;
     width: 103%;
-
-    ::after {
-        background: linear-gradient(
-            0deg,
-            #181818 0,
-            hsla(0, 0%, 9%, 0.987) 1.62%,
-            hsla(0, 0%, 9%, 0.951) 3.1%,
-            hsla(0, 0%, 9%, 0.896) 4.5%,
-            hsla(0, 0%, 9%, 0.825) 5.8%,
-            hsla(0, 0%, 9%, 0.741) 7.06%,
-            hsla(0, 0%, 9%, 0.648) 8.24%,
-            hsla(0, 0%, 9%, 0.55) 9.42%,
-            hsla(0, 0%, 9%, 0.45) 10.58%,
-            hsla(0, 0%, 9%, 0.352) 11.76%,
-            hsla(0, 0%, 9%, 0.259) 12.94%,
-            hsla(0, 0%, 9%, 0.175) 14.2%,
-            hsla(0, 0%, 9%, 0.104) 15.5%,
-            hsla(0, 0%, 9%, 0.049) 16.9%,
-            hsla(0, 0%, 9%, 0.013) 18.38%,
-            hsla(0, 0%, 9%, 0) 20%
-        );
-        content: "";
-        height: 100%;
-        left: 0;
-        position: absolute;
-        width: 100%;
-    }
 `;
 
 export const HeaderContainerBottomBanner = styled.div`

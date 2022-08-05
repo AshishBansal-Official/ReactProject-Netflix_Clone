@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import {
     HeaderContainer,
@@ -10,6 +10,27 @@ import {
 } from "./styles/header";
 
 const Header = ({ data }) => {
+    const [trailerUrl, setTrailerUrl] = useState("");
+
+    useEffect(() => {
+        let videos = data?.videos?.results;
+        videos = videos?.filter((video) => {
+            const isTrailer = video?.type === "Trailer";
+            const isOnYoutube = video?.site === "YouTube";
+            return isTrailer && isOnYoutube;
+        });
+        if (videos) {
+            setTrailerUrl(videos[0]?.key);
+        }
+    }, [data]);
+
+    useEffect(() => {
+        if (trailerUrl !== "") {
+            const player = document.getElementById("playTrailer");
+            setTimeout(player?.click(), 10000);
+        }
+    }, [trailerUrl]);
+
     return (
         <>
             <HeaderContainer>
@@ -97,10 +118,55 @@ const Header = ({ data }) => {
                             data?.images?.backdrops?.length > 0 &&
                             `${process.env.REACT_APP_IMAGES_BASE_URL}${data?.images?.backdrops[0]["file_path"]}`
                         }
-                    ></ImageContainer>
+                    >
+                        {data &&
+                            data?.videos?.results?.length > 0 &&
+                            trailerUrl !== "" && (
+                                <div
+                                    style={{
+                                        height: "100%",
+                                        width: "100%",
+                                        overflow: "hidden",
+                                        display: "flex",
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                        position: "relative",
+                                    }}
+                                >
+                                    <div
+                                        style={{
+                                            width: "120%",
+                                            height: "120%",
+                                        }}
+                                    >
+                                        <div
+                                            style={{
+                                                width: "100%",
+                                                height: "100%",
+                                                pointerEvents: "none",
+                                            }}
+                                        >
+                                            <iframe
+                                                height="100%"
+                                                width="100%"
+                                                src={`https://www.youtube.com/embed/${trailerUrl}?&autoplay=1&controls=0&showinfo=0&loop=1&modestbranding=1&disablekb=1&mute=1`}
+                                                title={"video"}
+                                                frameBorder="0"
+                                                autoPlay
+                                                allow="autoplay; clipboard-write; encrypted-media;"
+                                                style={{
+                                                    pointerEvents: "none",
+                                                }}
+                                            ></iframe>
+                                        </div>
+                                    </div>
+                                </div>
+                            )}
+                    </ImageContainer>
+                    <div className="image_container_gradient"></div>
                 </ImageWrapper>
             </HeaderContainer>
-            <HeaderContainerBottomBanner>
+            {/* <HeaderContainerBottomBanner>
                 <img
                     src="/images/logo_small.svg"
                     className="img_small"
@@ -117,9 +183,8 @@ const Header = ({ data }) => {
                     }}
                 >
                     <span>Watch all you want.</span>
-                    {/* <button>JOIN NOW</button> */}
                 </div>
-            </HeaderContainerBottomBanner>
+            </HeaderContainerBottomBanner> */}
         </>
     );
 };
