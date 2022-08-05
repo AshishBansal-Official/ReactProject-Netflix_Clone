@@ -94,7 +94,7 @@ const Header = ({ data }) => {
                     }}
                 >
                     <span>Watch all you want.</span>
-                    <button>JOIN NOW</button>
+                    {/* <button>JOIN NOW</button> */}
                 </div>
             </HeaderContainerBottomBanner>
         </>

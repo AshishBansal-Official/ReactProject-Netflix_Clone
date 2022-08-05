@@ -9,22 +9,22 @@ import PrivateRoute from "./utils/privateRoute";
 
 function App() {
     const dispatch = useDispatch();
-    const [myUser, setMyUser] = useState("");
+    const [isLoggedIn, setIsLoggedIn] = useState("");
 
     useEffect(() => {
         const authStateChange = onAuthStateChanged(auth, (user) => {
             if (user != null) {
-                setMyUser(user);
+                setIsLoggedIn(true);
                 dispatch(setUser({ uid: user?.uid, email: user?.email }));
             } else {
-                setMyUser("");
+                setIsLoggedIn(false);
                 dispatch(resetUser());
             }
         });
         return () => {
             authStateChange();
         };
-    }, [myUser]);
+    }, []);
 
     return (
         <Router>
@@ -32,17 +32,11 @@ function App() {
                 <Route exact path="/" element={<Home />} />
                 <Route exact path="/login" element={<Login />} />
                 <Route exact path="/register" element={<Register />} />
-                <Route
-                    exact
-                    path="/browse/*"
-                    element={<PrivateRoute Element={Browse} />}
-                />
-                <Route
-                    exact
-                    path="/title/:id"
-                    element={<PrivateRoute Element={Detail} />}
-                />
                 <Route exact path="/404page" element={<PageNotFound />} />
+                {/* <Route element={<PrivateRoute isLoggedIn={isLoggedIn} />}> */}
+                <Route exact path="/browse/*" element={<Browse />} />
+                <Route exact path="/title/:id" element={<Detail />} />
+                {/* </Route> */}
                 <Route path="/*" element={<PageNotFound />} />
             </Routes>
         </Router>

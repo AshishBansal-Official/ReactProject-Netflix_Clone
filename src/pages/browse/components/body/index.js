@@ -1,5 +1,5 @@
 import React from "react";
-import { Header, Slider } from "./components/index";
+import { Slider } from "./components/index";
 import { Container } from "./styles/body";
 import { data } from "./browse_data.js";
 import { Routes, Route } from "react-router-dom";

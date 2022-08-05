@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import {
     SliderTitle,
     SliderContainer,
@@ -94,12 +95,12 @@ const Slider = ({ title, url }) => {
                                         key={index}
                                         image={`${process.env.REACT_APP_IMAGES_BASE_URL}${item.backdrop_path}`}
                                     >
-                                        <a href={`/title/${item.id}`}>
+                                        <Link to={`/title/${item.id}`}>
                                             <div></div>
                                             <span>
                                                 {item.name ?? item.title}
                                             </span>
-                                        </a>
+                                        </Link>
                                     </SliderListItem>
                                 );
                             })}

@@ -9,7 +9,7 @@ const Login = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        if (user.uid !== "") {
+        if (user.username !== "") {
             navigate("/browse");
         }
     }, [user, navigate]);

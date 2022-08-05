@@ -38,7 +38,7 @@ const TVShowDetail = () => {
     return (
         <Container>
             <div>
-                <Nav></Nav>
+                {/* <Nav></Nav> */}
                 <Body>
                     <Header data={data}></Header>
 

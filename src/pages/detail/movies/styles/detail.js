@@ -14,11 +14,11 @@ export const Body = styled.div`
     background: #181818;
     margin: 0 auto;
     max-width: 1600px;
-    padding: 56px 5vw 25px;
+    padding: 0px 5vw;
     line-height: 1.4;
     overflow-x: hidden;
     @media (max-width: 599px) {
-        padding: 5px 5vw 20px;
+        padding: 0px 5vw;
     }
 `;
 
