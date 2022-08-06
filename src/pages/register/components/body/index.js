@@ -5,9 +5,9 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { useDispatch } from "react-redux";
 import { setUser } from "../../../../features/user/userSlice";
 
-const Body = ({ email = "" }) => {
+const Body = ({ email }) => {
     const initialFormData = Object.freeze({
-        email: "",
+        email: email,
         password: "",
     });
     const [loading, setLoading] = useState(false);
@@ -21,10 +21,6 @@ const Body = ({ email = "" }) => {
             [e.target.name]: e.target.value.trim(),
         });
     };
-
-    useEffect(() => {
-        updateFormData({ email: email });
-    }, [email]);
 
     const dispatch = useDispatch();
     const handleSubmit = async (e) => {
@@ -81,6 +77,7 @@ const Body = ({ email = "" }) => {
                 <form>
                     <InputField
                         required
+                        value={formData.email}
                         type="email"
                         name="email"
                         onChange={handleChange}
@@ -88,6 +85,7 @@ const Body = ({ email = "" }) => {
                     ></InputField>
                     <InputField
                         required
+                        value={formData.password}
                         type="password"
                         name="password"
                         onChange={handleChange}
