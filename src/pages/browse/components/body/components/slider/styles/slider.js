@@ -3,6 +3,12 @@ import styled from "styled-components/macro";
 export const SliderWrapper = styled.div`
     margin-top: 40px;
     padding: 0 3%;
+    @media (max-width: 764px) {
+        margin-top: 20px;
+    }
+    @media (max-width: 599px) {
+        margin-top: 0px;
+    }
 `;
 
 export const SliderTitle = styled.div`
@@ -14,7 +20,8 @@ export const SliderTitle = styled.div`
 
 export const SliderContainer = styled.div`
     width: 100%;
-    height: 200px;
+    min-height: 100px;
+    max-height: 200px;
     position: relative;
 `;
 
@@ -65,6 +72,10 @@ export const SliderList = styled.ul`
         /* WebKit */
         width: 0;
         height: 0;
+    }
+
+    @media (max-width: 599px) {
+        margin: 0px 0px;
     }
 `;
 
