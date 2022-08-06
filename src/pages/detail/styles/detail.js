@@ -16,6 +16,7 @@ export const Overlay = styled.div`
 export const VideoContainer = styled.div`
     cursor: default;
     max-width: 45%;
+    width: 100%;
     min-width: 300px;
     max-height: 60vh;
     aspect-ratio: 16/9;

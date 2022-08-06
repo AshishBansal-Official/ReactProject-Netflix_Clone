@@ -73,6 +73,11 @@ export const SliderListItem = styled.li`
     list-style-type: none;
     margin-right: 12px;
     flex: 1 0 auto;
+    transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
+
+    :hover {
+        transform: scale(1.05);
+    }
 
     @media (max-width: 1919px) {
         width: 22vw;
