@@ -17,6 +17,7 @@ const Nav = ({
     const [loading, setLoading] = useState(false);
 
     const handleSignOut = async () => {
+        setLoading(true);
         try {
             await signOut(auth);
             console.log("Signed Out");
@@ -36,6 +37,7 @@ const Nav = ({
                     .join(" ")}`
             );
         }
+        setLoading(false);
     };
 
     return (

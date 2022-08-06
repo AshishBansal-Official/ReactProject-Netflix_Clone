@@ -1,14 +1,17 @@
 import styled from "styled-components/macro";
 
 export const HeaderContainer = styled.div`
-    display: flex;
-    flex-direction: row;
-    margin: 0 auto;
+    background-image: ${({ img }) => (img ? `url(${img})` : ``)};
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-x: 5vw;
+    min-height: min-content;
+    margin-bottom: 20px;
     position: relative;
-    width: 100%;
-    margin-bottom: 2%;
-    overflow: hidden;
-    div.image_container_gradient {
+    z-index: 0;
+
+    ::after {
         background: linear-gradient(
             0deg,
             #181818 0,
@@ -30,38 +33,64 @@ export const HeaderContainer = styled.div`
         );
         content: "";
         height: 100%;
+        width: 100%;
+        bottom: 0;
         left: 0;
         position: absolute;
-        width: 100%;
+        z-index: 1;
     }
 `;
 
 export const InfoWrapper = styled.div`
+    height: 100%;
+    width: 40%;
+    padding: 60px;
+    padding-left: 5vw;
+    max-width: 800px;
+    min-width: 380px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    max-width: 800px;
-    min-width: 500px;
-    padding: 16px 32px 64px 80px;
-    position: relative;
-    width: 40%;
-    z-index: 2;
+    align-items: center;
+    background-image: linear-gradient(
+        90deg,
+        #181818 10%,
+        hsla(0, 0%, 9%, 0.98) 20%,
+        hsla(0, 0%, 9%, 0.97) 25%,
+        hsla(0, 0%, 9%, 0.95) 35%,
+        hsla(0, 0%, 9%, 0.94) 40%,
+        hsla(0, 0%, 9%, 0.92) 45%,
+        hsla(0, 0%, 9%, 0.9) 50%,
+        hsla(0, 0%, 9%, 0.87) 55%,
+        hsla(0, 0%, 9%, 0.82) 60%,
+        hsla(0, 0%, 9%, 0.75) 65%,
+        hsla(0, 0%, 9%, 0.63) 70%,
+        hsla(0, 0%, 9%, 0.45) 75%,
+        hsla(0, 0%, 9%, 0.27) 80%,
+        hsla(0, 0%, 9%, 0.15) 85%,
+        hsla(0, 0%, 9%, 0.08) 90%,
+        hsla(0, 0%, 9%, 0.03) 95%,
+        hsla(0, 0%, 9%, 0)
+    );
 `;
 
 export const InfoContainer = styled.div`
-    margin: 40px 0px 22px;
-
-    div#poster {
-        background-image: ${({ img }) => (img ? `url(${img})` : ``)};
-        width: 90%;
-        position: relative;
-        background-repeat: no-repeat;
-        background-size: contain;
-        height: 100%;
+    height: 100%;
+    div.posterContainer {
+        max-width: 100%;
         max-height: 100px;
-        margin-bottom: 40px;
-    }
+        position: relative;
+        margin-bottom: 20px;
+        object-fit: contain;
 
+        img {
+            max-height: 100px;
+            height: 100%;
+            width: 100%;
+            display: block;
+            margin: auto;
+        }
+    }
     h1 {
         font-size: 24px;
         font-weight: 700;
@@ -83,92 +112,5 @@ export const InfoContainer = styled.div`
         line-height: 22px;
         max-width: 100%;
         padding-top: 16px;
-    }
-
-    ::after {
-        background: linear-gradient(
-            90deg,
-            #181818 10%,
-            hsla(0, 0%, 9%, 0.98) 20%,
-            hsla(0, 0%, 9%, 0.97) 25%,
-            hsla(0, 0%, 9%, 0.95) 35%,
-            hsla(0, 0%, 9%, 0.94) 40%,
-            hsla(0, 0%, 9%, 0.92) 45%,
-            hsla(0, 0%, 9%, 0.9) 50%,
-            hsla(0, 0%, 9%, 0.87) 55%,
-            hsla(0, 0%, 9%, 0.82) 60%,
-            hsla(0, 0%, 9%, 0.75) 65%,
-            hsla(0, 0%, 9%, 0.63) 70%,
-            hsla(0, 0%, 9%, 0.45) 75%,
-            hsla(0, 0%, 9%, 0.27) 80%,
-            hsla(0, 0%, 9%, 0.15) 85%,
-            hsla(0, 0%, 9%, 0.08) 90%,
-            hsla(0, 0%, 9%, 0.03) 95%,
-            hsla(0, 0%, 9%, 0)
-        );
-        bottom: 0;
-        content: "";
-        left: 0;
-        position: absolute;
-        right: -200px;
-        top: 0;
-        z-index: -1;
-    }
-`;
-
-export const ImageWrapper = styled.div`
-    display: flex;
-    flex: 1 1 auto;
-    flex-direction: row;
-    height: 0;
-    padding-bottom: 55%;
-    z-index: 1;
-`;
-export const ImageContainer = styled.div`
-    background-image: ${({ img }) => (img ? `url(${img})` : ``)};
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100%;
-    position: absolute;
-    right: -6%;
-    width: 103%;
-`;
-
-export const HeaderContainerBottomBanner = styled.div`
-    box-shadow: 8px 5px 16px 0 rgb(0 0 0 / 37%);
-    margin-bottom: 32px;
-    margin-top: -64px;
-    position: relative;
-    padding: 8px;
-    align-items: center;
-    background-image: linear-gradient(90deg, #333 5%, #181818 95%);
-    display: flex;
-    z-index: 2;
-
-    @media (max-width: 1024px) {
-        display: none;
-    }
-
-    img {
-        flex: 0 0 21px;
-        height: 38px;
-        margin-left: 25px;
-        padding: 0;
-    }
-
-    button {
-        padding: 9px 20px;
-        line-height: 15px;
-        font-size: 13px;
-        min-width: 112px;
-        background-color: #e50914;
-        background-image: linear-gradient(180deg, #e50914, #db0510);
-        box-shadow: 0 1px 0 rgb(0 0 0 / 45%);
-        color: #fff;
-        border: 0;
-        border-radius: 2px;
-        margin: 5px 25px 5px 1em;
-        white-space: nowrap;
-        cursor: pointer;
     }
 `;

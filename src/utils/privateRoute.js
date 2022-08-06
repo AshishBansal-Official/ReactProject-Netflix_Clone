@@ -7,7 +7,7 @@ const PrivateRoute = ({ isLoggedIn }) => {
     const [isBusy, setIsBusy] = useState(true);
     useEffect(() => {
         setIsBusy(true);
-        setTimeout(() => setIsBusy(false), 1000);
+        setTimeout(() => setIsBusy(false), 2000);
     }, []);
 
     return isBusy ? (

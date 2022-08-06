@@ -49,8 +49,13 @@ export const NavLink = styled.div`
     cursor: pointer;
     color: white;
 
+    @media (max-width: 700px) {
+        margin-left: 10px;
+    }
+
     a {
         color: ${({ selected }) => (selected ? "#fff" : "#e5e5e5")};
+        font-size: 13px;
         font-weight: ${({ selected }) => (selected ? "700" : "")};
         text-decoration: none;
         transition: color 0.4s;
@@ -68,10 +73,6 @@ export const NavLink = styled.div`
 export const RightPane = styled.div`
     span {
         font-size: 13px;
-
-        @media (max-width: 1022px) {
-            display: none;
-        }
     }
 
     button {
@@ -87,6 +88,10 @@ export const RightPane = styled.div`
         border: 0;
         border-radius: 2px;
         cursor: pointer;
+
+        @media (max-width: 600px) {
+            padding: 9px 10px;
+        }
 
         :disabled {
             opacity: 0.8;
