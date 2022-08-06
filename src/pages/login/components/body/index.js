@@ -82,7 +82,7 @@ const Body = () => {
                     >
                         <span>
                             {!loading && "Sign In"}
-                            {loading && <div class="indicator"> </div>}
+                            {loading && <div className="indicator"> </div>}
                         </span>
                     </button>
                     <div style={{ color: "#B3B3B3", position: "relative" }}>

@@ -8,7 +8,7 @@ const Home = () => {
     const user = useSelector((state) => state.user.value);
 
     useEffect(() => {
-        if (user.username !== "") {
+        if (user.uid !== "") {
             navigate("/browse");
         }
     }, [user, navigate]);

@@ -1,8 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Navigate, Outlet } from "react-router-dom";
+import { auth } from "../services/firebase";
 
 const PrivateRoute = ({ isLoggedIn }) => {
-    return isLoggedIn ? <Outlet /> : <Navigate to="/login" replace />;
+    const user = auth.currentUser;
+    const [isBusy, setIsBusy] = useState(true);
+    useEffect(() => {
+        setIsBusy(true);
+        setTimeout(() => setIsBusy(false), 1000);
+    }, []);
+
+    return isBusy ? (
+        <div>loading...</div>
+    ) : user ? (
+        <Outlet />
+    ) : (
+        <Navigate to="/login" replace />
+    );
 };
 
 export default PrivateRoute;
