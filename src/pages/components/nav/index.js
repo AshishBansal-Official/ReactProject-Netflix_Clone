@@ -20,7 +20,6 @@ const Nav = ({
         setLoading(true);
         try {
             await signOut(auth);
-            console.log("Signed Out");
             dispatch(resetUser());
             navigate("/", { replace: true });
         } catch (error) {
@@ -42,7 +41,7 @@ const Nav = ({
 
     return (
         <Container height={height} showSolidBackground={showSolidBackground}>
-            <Link to="/in/">
+            <Link to="/">
                 <Logo>
                     <img src="/images/logo.svg" className="img_big" alt="" />
                     <img
@@ -73,7 +72,7 @@ const Nav = ({
                     <button disabled={loading} onClick={() => handleSignOut()}>
                         <span>
                             {!loading && "SIGN OUT"}
-                            {loading && <div class="indicator"> </div>}
+                            {loading && <div className="indicator"> </div>}
                         </span>
                     </button>
                 </RightPane>

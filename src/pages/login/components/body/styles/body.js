@@ -14,7 +14,7 @@ export const Wrapper = styled.div`
 
 export const Container = styled.div`
     width: 100%;
-    min-width: 380px;
+    min-width: 250px;
     min-height: 660px;
     max-width: 450px;
     padding: 60px 68px 40px;

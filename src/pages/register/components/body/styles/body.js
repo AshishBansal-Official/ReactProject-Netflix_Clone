@@ -2,7 +2,7 @@ import styled from "styled-components/macro";
 
 export const Container = styled.div`
     margin: auto;
-    padding: 20px 0px;
+    padding: 20px 10px;
     color: black;
 
     button {

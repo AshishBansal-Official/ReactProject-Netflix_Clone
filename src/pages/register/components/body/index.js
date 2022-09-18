@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { InputField, Container } from "./styles/body";
 import { auth } from "../../../../services/firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";

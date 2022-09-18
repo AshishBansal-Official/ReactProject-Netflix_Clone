@@ -24,7 +24,7 @@ function App() {
         return () => {
             authStateChange();
         };
-    }, []);
+    }, [dispatch]);
 
     return (
         <Router>

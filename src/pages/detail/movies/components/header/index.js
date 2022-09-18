@@ -11,9 +11,9 @@ const Header = ({ data }) => {
                     `${process.env.REACT_APP_IMAGES_BASE_URL}${data?.images?.backdrops[0]["file_path"]}`
                 }
             >
-                <div class="bottomGradient"></div>
+                <div className="bottomGradient"></div>
                 <InfoWrapper>
-                    <div class="leftGradient"></div>
+                    <div className="leftGradient"></div>
                     <InfoContainer>
                         {data && data?.images?.logos?.length > 0 ? (
                             <div className="posterContainer">

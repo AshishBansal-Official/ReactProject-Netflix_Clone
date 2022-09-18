@@ -25,6 +25,10 @@ export const LeftPane = styled.div`
     margin-left: ${({ reverse }) => (reverse ? "48px" : "0px")};
     width: ${({ reverse }) => (reverse ? "100%" : "100%")};
     height: 100%;
+    @media (max-width: 950px) {
+        margin-right: 0px;
+        margin-left: 0px;
+    }
 `;
 
 export const RightPane = styled.div`
