@@ -4,7 +4,7 @@ The Netflix Clone is built using ReactJS.
 
 Movie data was pulled from TMDB and trailer videos from Youtube.
 
-[Live Demo](https://netflix-clone-5ecf3.netlify.app/)
+[Demo](https://drive.google.com/file/d/1oJ3zDqxXbgRrZNCCqSma8gUqhSEnSL_p/view?usp=sharing)
 
 # Screenshots
 
